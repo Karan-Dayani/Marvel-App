@@ -2,11 +2,12 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./style.css"
 import Navbar from "./components/Navbar";
+import Main from "./components/Main";
 
 export default function App() {
     const [charArr, setCharArr] = React.useState([])
 
-    console.log(charArr)
+    // console.log(charArr)
 
     function characterChange(char) {
         // const url = `https://gateway.marvel.com/v1/public/characters?ts=${process.env.REACT_APP_TS}&name=hulk&apikey=${process.env.REACT_APP_API_KEY}&hash=${process.env.REACT_APP_HASH}#`
@@ -17,12 +18,13 @@ export default function App() {
     }
 
     React.useEffect(() => {
-        characterChange("iron man");
+        characterChange();
     },[])
 
     return (
         <div>
-            <Navbar/>
+            <Navbar changeChar={characterChange} />
+            {charArr.length !== 0 && <Main charArr={charArr} />}
         </div>
     )
 }
