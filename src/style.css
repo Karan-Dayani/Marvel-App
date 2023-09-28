@@ -6,9 +6,32 @@ body {
     margin: 0;
     padding: 0;
     background: #444444;
+    color: #ffffff;
+}
+
+main {
+    height: calc(100vh - 90px);
 }
 
 .main-img {
-    height: 500px;
-    width: 500px;
+    max-width: 400px;
+    border-radius: 500px;
+}
+
+.main-info {
+    max-width: 500px;
+}
+
+@media screen and (max-width: 700px) {
+    main {
+        flex-direction: column;
+    }
+
+    .main-img {
+        max-width: 75%;
+    }
+
+    .main-info {
+        max-width: 75%;
+    }
 }
